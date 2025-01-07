@@ -9,11 +9,12 @@ try:
 
   value = argv[1]
 
-  assert value.isdigit(), "argument is not an integer"
-
-  if int(value) % 2 == 0:
-    print("I'm Even.")
-  else:
-    print("I'm Odd.")
+  try:
+    if int(value) % 2 == 0:
+      print("I'm Even.")
+    else:
+      print("I'm Odd.")
+  except ValueError as e:
+    raise AssertionError("argument is not an integer")
 except AssertionError as e:
   print(f"AssertionError: {e}")
